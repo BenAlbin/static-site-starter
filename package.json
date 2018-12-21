@@ -21,15 +21,15 @@
     "metalsmith-in-place": "^4.2.0",
     "metalsmith-layouts": "^2.3.0",
     "metalsmith-markdown": "^1.1.0",
-    "metalsmith-writemetadata": "^0.4.5"
-  },
-  "devDependencies": {
+    "metalsmith-writemetadata": "^0.4.5",
     "browser-sync": "^2.26.3",
     "gulp-concat": "^2.6.1",
     "gulp-inject": "^5.0.2",
+    "gulp-yaml-include": "^0.2.1",
     "metalsmith-permalinks": "^2.0.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^12.0.1",
     "tailwindcss": "^0.7.3"
-  }
+  },
+  "devDependencies": {}
 }

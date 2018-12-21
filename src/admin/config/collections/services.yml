@@ -1,0 +1,26 @@
+name: "services"
+label: "Service"
+folder: "src/content/services"
+create: true
+extension: "md"
+fields:
+  - label: "Title"
+    name: "title"
+    widget: "string"
+  - label: "Topics"
+    name: "topics"
+    widget: "list"
+    field:
+      label: "Topic"
+      name: "topic"
+      widget: "relation"
+      collection: "topics"
+      valueField: "title"
+      searchFields: ["title"]
+      optional: true
+  - label: "Summary"
+    name: "summary"
+    widget: "text"
+  - label: "Description"
+    name: "body"
+    widget: "markdown"

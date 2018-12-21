@@ -1,0 +1,14 @@
+backend:
+  name: bitbucket
+  repo: benalbin/albin-and-co-site
+media_folder: "src/images/uploads"
+public: "/images/uploads"
+display_url: https://example.com
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+collections:
+  - !!inc/file config/collections/services.yml
+  - !!inc/file config/collections/topics.yml
+  - !!inc/file config/collections/locations.yml

@@ -1,0 +1,19 @@
+name: "topics"
+label-singular: "Topic"
+label: "Topics"
+create: true
+folder: "src/content/topics"
+fields:
+  - label: "Service"
+    name: "service"
+    widget: "relation"
+    collection: "services"
+    valueField: "title"
+    searchFields: ["title"]
+    optional: true
+  - label: "Title"
+    name: "title"
+    widget: "string"
+  - label: "Summary"
+    name: "body"
+    widget: "markdown"

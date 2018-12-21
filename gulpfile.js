@@ -99,9 +99,33 @@ gulp.task("clean:dist", cb => {
   return del(config.content.dist, cb);
 });
 
+// NETLIFYMCS
+
+const yamlinc = require("gulp-yaml-include");
+
+gulp.task("clean:netlifycms", cb => {
+  return del("./dist/admin", cb);
+});
+
+const moveNetlifyIndex = () => {
+  return gulp.src("./src/admin/index.html").pipe(gulp.dest("./dist/admin"));
+};
+
+gulp.task("netlify-config", () => {
+  return gulp
+    .src("./src/admin/config.yml")
+    .pipe(yamlinc())
+    .pipe(gulp.dest("./dist/admin"));
+});
+
+gulp.task("netlifycms", gulp.series(moveNetlifyIndex, "netlify-config"));
+
 // BUILD
 
-gulp.task("build", gulp.series("clean:dist", "styles", "metalsmith"));
+gulp.task(
+  "build",
+  gulp.series("clean:dist", "styles", "metalsmith", "netlifycms")
+);
 
 // DEV SERVER
 
@@ -117,6 +141,8 @@ gulp.task("watch", cb => {
   gulp.watch(config.styles.src, gulp.series("styles", "metalsmith", reload));
 
   gulp.watch(config.content.src, gulp.series("metalsmith", reload));
+
+  gulp.watch("./src/admin/**/*.yml", gulp.series("netlify-config", reload));
 
   cb();
 });
