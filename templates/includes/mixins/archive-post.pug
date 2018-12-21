@@ -1,0 +1,6 @@
+mixin archive-post(post, even)
+  article(class=`archive-article archive-type-${post.layout}`)
+    .archive-article-inner
+      header.archive-article-header
+        +post-date(post, 'archive-article-date', 'MMM D')
+        +post-title(post, 'archive-article-title')

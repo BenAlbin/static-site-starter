@@ -1,0 +1,6 @@
+mixin sidebar
+  aside(id="sidebar" class={outer: theme.sidebar === 'bottom'})
+    each widget in theme.widgets
+      != partial('_widget/' + widget)
+
+    

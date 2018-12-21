@@ -1,0 +1,17 @@
+include includes/mixins.pug
+
+doctype html
+html
+  include includes/head.pug
+  body
+    #container
+      #wrap
+        include includes/header
+        .outer
+          section#main
+            != body
+          if (theme.sidebar && theme.sidebar !== 'bottom')
+            include includes/sidebar
+        include includes/footer
+      include includes/mobile-nav.pug
+      include includes/after-footer

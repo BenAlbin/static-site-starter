@@ -1,0 +1,22 @@
+{
+  "styles": {
+    "src": "./src/styles/**/*.{styl,stylus}",
+    "tmp": "./tmp/styles",
+    "dist": "./dist/styles"
+  },
+  "images": {
+    "src": "./src/images/**/*",
+    "tmp": "./tmp/images",
+    "dist": "./dist/images"
+  },
+  "scripts": {
+    "src": "./src/scripts/**/*.{js}",
+    "tmp": "./tmp/scripts",
+    "dist": "./dist/scripts"
+  },
+  "content": {
+    "src": "./src/content/**/*",
+    "tmp": "./tmp",
+    "dist": "./dist"
+  }
+}
