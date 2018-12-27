@@ -5,7 +5,7 @@ create: true
 folder: "src/content/topics"
 fields:
   - label: "Service"
-    name: "service"
+    name: "collection"
     widget: "relation"
     collection: "services"
     valueField: "title"

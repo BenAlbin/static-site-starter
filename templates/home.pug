@@ -6,5 +6,17 @@ block body
     div(class="bg-red")
       p hello
   
+  div
+    each service in collections.services
+      +services-card(service)
+  
   div(class="page-markdown")
     != contents
+
+
+mixin services-card(service)
+  div(class="max-w-md w-full lg:flex")
+    //- Icon
+    div(class="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal")
+      div(class="text-black font-bold text-xl mb-2")= service.title
+      p(class="text-grey-darker text-base")= service.summary

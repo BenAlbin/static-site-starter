@@ -1,0 +1,30 @@
+name: "about-pages"
+label: About Us Pages
+create: true
+folder: "src/content/subpages"
+filter:
+  filter: parent
+  value: about
+fields:
+  - label: Title
+    name: title
+    default: "About Us"
+    widget: string
+  - label: SEO Title
+    name: seo_title
+    widget: string
+  - label: Parent Section
+    name: parent
+    widget: select
+    options:
+      - "about"
+      - "contact"
+      - "payments"
+      - "services"
+      - "teams"
+  - label: Text Body
+    name: body
+    widget: markdown
+  - name: layout
+    default: page.pug
+    widget: hidden

@@ -1,0 +1,21 @@
+label: "Home Page"
+name: "home"
+file: "index.md"
+fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: SEO Title
+    name: seo_title
+    widget: string
+  - label: Content
+    name: body
+    widget: markdown
+  - label: Layout
+    name: layout
+    default: "home.pug"
+    widget: hidden
+  - label: "Permalink"
+    name: permalink
+    default: false
+    widget: hidden

@@ -6,6 +6,7 @@ fields:
   - label: "Title"
     name: "title"
     widget: "string"
+
   - label: "Address"
     name: "address"
     widget: "object"

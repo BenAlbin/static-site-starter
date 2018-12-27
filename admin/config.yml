@@ -12,3 +12,4 @@ collections:
   - !!inc/file config/collections/services.yml
   - !!inc/file config/collections/topics.yml
   - !!inc/file config/collections/locations.yml
+  - !!inc/file config/collections/teams.yml

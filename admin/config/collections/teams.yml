@@ -1,0 +1,28 @@
+name: teams
+label: Teams
+create: true
+folder: src/content/teams
+fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Heading
+    name: heading
+    widget: text
+  - label: Members
+    name: members
+    widget: list
+    required: false
+    fields:
+      - label: Name
+        name: name
+        widget: string
+      - label: Job Title
+        name: job_title
+        widget: string
+      - label: Summary
+        name: summary
+        widget: markdown
+      - label: Portrait
+        name: portrait
+        widget: image

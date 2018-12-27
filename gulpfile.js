@@ -6,6 +6,11 @@ const concat = require("gulp-concat");
 
 const browserSync = require("browser-sync");
 
+// const HubRegistry = require("gulp-hub");
+
+// const hub = new HubRegistry(["./gulp/*.js"]);
+// gulp.registry(hub);
+
 // STYLES
 // MESSAGE TO FUTURE ME. DON'T USE A PREPROCESSOR, THEY WILL STOP BEING
 // MAINTAINED AND IT WILL BREAK YOUR HEART. Press F to pay your respects to
@@ -59,7 +64,7 @@ gulp.task(
   "scripts",
   gulp.series("clean:scripts", () => {
     return gulp
-      .src(config.scripts.src)
+      .src("./src/scripts/**/*.js", "!./src/scripts/netlify-cms.js")
       .pipe(concat("app.min.js"))
       .pipe(gulp.dest(config.scripts.dist));
   })
@@ -71,11 +76,26 @@ const Metalsmith = require("metalsmith");
 const markdown = require("metalsmith-markdown");
 const layouts = require("metalsmith-layouts");
 const permalinks = require("metalsmith-permalinks");
+const collections = require("metalsmith-collections")
+const writemetadata = require("metalsmith-writemetadata")
+// const metadata = require("metalsmith-metadata")
 
 gulp.task("metalsmith", cb => {
   Metalsmith(__dirname)
+    .metadata({
+      contact: './src/content/metadata/contact.json'
+    })
     .source("./src/content")
     .clean(false)
+    .use(collections({
+      services: {
+        pattern: 'services/*.md'
+      },
+
+      topics: {
+        pattern: 'topics/*.md'
+      }
+    }))
     .use(markdown())
     .use(
       layouts({
@@ -84,10 +104,11 @@ gulp.task("metalsmith", cb => {
     )
     .use(
       permalinks({
+        relative: false,
         pattern: ":title"
       })
     )
-    .destination(config.content.dist)
+    .destination("./dist")
     .build(err => {
       if (err) console.error(err);
       console.log("finished");
@@ -108,12 +129,12 @@ gulp.task("clean:netlifycms", cb => {
 });
 
 const moveNetlifyIndex = () => {
-  return gulp.src("./src/admin/index.html").pipe(gulp.dest("./dist/admin"));
+  return gulp.src("./admin/index.html").pipe(gulp.dest("./dist/admin"));
 };
 
 gulp.task("netlify-config", () => {
   return gulp
-    .src("./src/admin/config.yml")
+    .src("./admin/config.yml")
     .pipe(yamlinc())
     .pipe(gulp.dest("./dist/admin"));
 });
