@@ -1,15 +1,13 @@
 backend:
-  name: bitbucket
-  repo: benalbin/albin-and-co-site
+  name:
+  repo:
 media_folder: "src/images/uploads"
 public: "/images/uploads"
-display_url: https://example.com
+display_url:
 slug:
   encoding: "ascii"
   clean_accents: true
   sanitize_replacement: "-"
 collections:
-  - !!inc/file config/collections/services.yml
-  - !!inc/file config/collections/topics.yml
-  - !!inc/file config/collections/locations.yml
-  - !!inc/file config/collections/teams.yml
+  # Load collection configs from separate files because it's smart.
+  # - !!inc/file config/collections/file.yml
