@@ -1,3 +1,4 @@
+//TODO: Fix config stuff.
 const config = require("./config.json");
 
 const gulp = require("gulp");
@@ -58,6 +59,8 @@ gulp.task(
 
 // SCRIPTS
 
+// TODO: Script injections. No global js. Also webpack to bundle.
+
 gulp.task("clean:scripts", () => del(config.scripts.dist));
 
 gulp.task(
@@ -77,8 +80,7 @@ const markdown = require("metalsmith-markdown");
 const layouts = require("metalsmith-layouts");
 const permalinks = require("metalsmith-permalinks");
 const collections = require("metalsmith-collections")
-const writemetadata = require("metalsmith-writemetadata")
-// const metadata = require("metalsmith-metadata")
+// const writemetadata = require("metalsmith-writemetadata")
 
 gulp.task("metalsmith", cb => {
   Metalsmith(__dirname)

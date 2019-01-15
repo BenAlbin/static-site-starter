@@ -1,9 +1,0 @@
-if (site.posts.length)
-  .widget-wrap
-    h3.widget-title= __('recent_posts')
-    .widget
-      ul
-        each post in site.posts.sort('date', -1).limit(5).toArray()
-          li
-            a(href=url_for(post.path))= post.title || "(no title)"
-            
